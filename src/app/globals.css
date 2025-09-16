@@ -12,15 +12,148 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+.dark .bg-white {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark .text-gray-700 {
+  color: #cccccc;
+}
+
+.dark .border-gray-600 {
+  border-color: #555555;
+}
+
+.dark .bg-gray-50 {
+  background-color: #3d3d3d;
+}
+
+.dark .text-gray-600 {
+  color: #aaaaaa;
+}
+
+.dark .bg-gray-100 {
+  background-color: #4d4d4d;
+}
+
+.dark .text-white {
+  color: #ffffff;
+}
+
+.dark .bg-gray-800 {
+  background-color: #1a1a1a;
+}
+
+.dark .text-black {
+  color: #ffffff;
+}
+
+/* Dark mode form element styles */
+.dark select,
+.dark input[type="text"],
+.dark input[type="date"],
+.dark textarea {
+  background-color: #2d2d2d;
+  color: #ffffff;
+  border-color: #555555;
+}
+
+.dark select option {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark select:focus,
+.dark input:focus,
+.dark textarea:focus {
+  border-color: #777777;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(119, 119, 119, 0.2);
+}
+
+.dark select:hover,
+.dark input:hover,
+.dark textarea:hover {
+  border-color: #777777;
+}
+
+/* Placeholder text in dark mode */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #888888;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Touch-friendly buttons */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better mobile form inputs */
+  input, select, textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Mobile table optimizations */
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px 4px;
+  }
+
+  /* Mobile grid adjustments */
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:bg-gray-50:hover {
+    background-color: transparent;
+  }
+
+  .hover\:bg-blue-50:hover {
+    background-color: transparent;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Smooth scrolling for mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent horizontal scroll on mobile */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
 }
